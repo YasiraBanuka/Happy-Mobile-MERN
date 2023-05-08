@@ -31,9 +31,9 @@ const RentedTable = () => {
         };
         fetchRents();
     }, []);
-      
+
     const handleEdit = (id) => {
-        navigate(`/editrented/${id}`);
+        navigate(`/EditRented/${id}`);
     };
 
     const handleDelete = (id) => {
@@ -70,7 +70,7 @@ const RentedTable = () => {
                                     type="search"
                                     className='search'
                                     placeholder="Search"
-                                    onChange={(e) => onSearchChange(e.target.value)}
+                                // onChange={(e) => onSearchChange(e.target.value)}
                                 />
 
                             </Col>
@@ -109,7 +109,7 @@ const RentedTable = () => {
                             </tbody>
                             <thead>
                                 <tr>
-                                    <th>No</th>
+
                                     <th>Customer Name</th>
                                     <th>Item Type</th>
                                     <th>Item Brand</th>
@@ -130,16 +130,16 @@ const RentedTable = () => {
                                         <td>{row.itemQuantity}</td>
                                         <td>{row.rentPeriod}</td>
                                         <td>{row.cusContact}</td>
-                                        
-                                            <>
-                                                <td>
-                                                    <button className='edit_btn' onClick={() => handleEdit(row._id)}>edit</button>
-                                                </td>
-                                                <td>
-                                                    <button className='delete_btn' onClick={() => handleDelete(row._id)}>delete</button>
-                                                </td>
-                                            </>
-                                        
+
+                                        <>
+                                            <td>
+                                                <button className='edit_btn' onClick={() => handleEdit(row._id)}>edit</button>
+                                            </td>
+                                            <td>
+                                                <button className='delete_btn' onClick={() => handleDelete(row._id)}>delete</button>
+                                            </td>
+                                        </>
+
                                     </tr>
                                 ))}
                             </tbody>

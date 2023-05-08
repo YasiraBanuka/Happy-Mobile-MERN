@@ -3,6 +3,10 @@ import mongoose from 'mongoose'
 const { Schema } = mongoose
 
 const RentSchema = new Schema({
+    userId: {
+        type: String,
+        required: true
+    },
     cusName: {
         type: String,
         required: true

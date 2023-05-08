@@ -4,11 +4,9 @@ import "react-datepicker/dist/react-datepicker.css";
 import "../../App.css";
 import "../../Styles/schedule/schedule.css";
 import { Container, Row, Col } from "reactstrap";
-// import image from "../../../images/Schedule/image2.jpg";
 import { AiFillCalendar } from "react-icons/ai";
 import { useParams } from "react-router-dom";
 import Axios from "axios";
-// import { showLoadingSpinner, hideLoadingSpinner } from '../../../Components/Loading/Loading.js'
 import { parseISO, format } from 'date-fns';
 
 const EditRented = () => {
@@ -22,35 +20,29 @@ const EditRented = () => {
     const [itemBrand, setItemBrand] = useState("");
     const [itemQuantity, setItemQuantity] = useState("");
     const [rentPeriod, setRentPeriod] = useState("");
-    const [rent, setRent] = useState(null);
-
+    const [rent, setRent] = useState("");
+    const [error, setError] = useState("");
 
     useEffect(() => {
-        // showLoadingSpinner();
         const fetchRent = async () => {
             try {
-
                 const response = await Axios.get(`http://localhost:4000/rents/${id}`);
                 setRent(response.data);
-                // setStartDate(response.date);
-                setCusName(response.cusName);
-                setCusAddress(response.cusAddress);
-                setCusContact(response.cusContact);
-                setCusEmail(response.cusEmail);
-                setItemType(response.itemType);
-                setItemBrand(response.itemBrand);
-                setItemQuantity(response.itemQuantity);
-                setRentPeriod(response.rentPeriod);
-                console.log(response.data);
+                setCusName(response.data.cusName);
+                setCusAddress(response.data.cusAddress);
+                setCusContact(response.data.cusContact);
+                setCusEmail(response.data.cusEmail);
+                setItemType(response.data.itemType);
+                setItemBrand(response.data.itemBrand);
+                setItemQuantity(response.data.itemQuantity);
+                setRentPeriod(response.data.rentPeriod);
             } catch (error) {
+                setError("Error fetching rent");
                 console.log('Error fetching rent:', error);
             }
-            // hideLoadingSpinner();
         };
         fetchRent();
     }, [id]);
-
-
 
     const handleFormSubmit = (event) => {
 
@@ -95,19 +87,15 @@ const EditRented = () => {
                         <div className="title code">Update Rented Items</div>
                         <div className="inputs">
                             <form onSubmit={handleFormSubmit}>
-                                {/* <Row>
-                                    <img src={image} alt="" className="images" />
-                                </Row>
-                                <br /> */}
                                 <Row>
                                     <Col lg="4">
                                         <label htmlFor="name">Name :</label>
                                     </Col>
                                     <Col>
-                                        <input 
-                                            type="text" 
+                                        <input
+                                            type="text"
                                             className=""
-                                            value={{ cusName }}
+                                            value={cusName}
                                             onChange={e => setCusName(e.target.value)}
                                         />
                                     </Col>
@@ -118,12 +106,13 @@ const EditRented = () => {
                                         <label htmlFor="name">Address :</label>
                                     </Col>
                                     <Col>
-                                        <input 
-                                            type="text" 
+                                        <input
+                                            type="text"
                                             className=""
-                                            value={{ cusAddress }}
+                                            value={cusAddress}
                                             onChange={e => setCusAddress(e.target.value)}
                                         />
+
                                     </Col>
                                 </Row>
                                 <br />
@@ -132,10 +121,10 @@ const EditRented = () => {
                                         <label htmlFor="name">Contact No. :</label>
                                     </Col>
                                     <Col>
-                                        <input 
-                                            type="text" 
+                                        <input
+                                            type="text"
                                             className=""
-                                            value={{ cusContact }}
+                                            value={cusContact}
                                             onChange={e => setCusContact(e.target.value)}
                                         />
                                     </Col>
@@ -146,10 +135,10 @@ const EditRented = () => {
                                         <label htmlFor="name">Email :</label>
                                     </Col>
                                     <Col>
-                                        <input 
-                                            type="text" 
+                                        <input
+                                            type="text"
                                             className=""
-                                            value={{ cusEmail }}
+                                            value={cusEmail}
                                             onChange={e => setCusEmail(e.target.value)}
                                         />
                                     </Col>
@@ -160,10 +149,10 @@ const EditRented = () => {
                                         <label htmlFor="name">Item Type :</label>
                                     </Col>
                                     <Col>
-                                        <input 
-                                            type="text" 
+                                        <input
+                                            type="text"
                                             className=""
-                                            value={{ itemType }}
+                                            value={itemType}
                                             onChange={e => setItemType(e.target.value)}
                                         />
                                     </Col>
@@ -174,10 +163,10 @@ const EditRented = () => {
                                         <label htmlFor="name">Item Brand :</label>
                                     </Col>
                                     <Col>
-                                        <input 
-                                            type="text" 
+                                        <input
+                                            type="text"
                                             className=""
-                                            value={{ itemBrand }}
+                                            value={itemBrand}
                                             onChange={e => setItemBrand(e.target.value)}
                                         />
                                     </Col>
@@ -188,10 +177,10 @@ const EditRented = () => {
                                         <label htmlFor="name">Quantity :</label>
                                     </Col>
                                     <Col>
-                                        <input 
-                                            type="text" 
+                                        <input
+                                            type="text"
                                             className=""
-                                            value={{ itemQuantity }}
+                                            value={itemQuantity}
                                             onChange={e => setItemQuantity(e.target.value)}
                                         />
                                     </Col>
@@ -202,10 +191,10 @@ const EditRented = () => {
                                         <label htmlFor="name">Rent Period :</label>
                                     </Col>
                                     <Col>
-                                        <input 
-                                            type="text" 
+                                        <input
+                                            type="text"
                                             className=""
-                                            value={{ rentPeriod }}
+                                            value={rentPeriod}
                                             onChange={e => setRentPeriod(e.target.value)}
                                         />
                                     </Col>

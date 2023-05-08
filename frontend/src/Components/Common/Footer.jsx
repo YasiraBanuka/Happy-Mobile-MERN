@@ -22,7 +22,7 @@ const Footer = () => {
         <div className="row">
             <div className="col-md-6 mt-md-0 mt-3">
                 <img src={logo} alt="Logo" width={250} />
-                <p>Beyond The Traditional GYM</p>
+                {/* <p>Beyond The Traditional GYM</p> */}
             </div>
 
             <hr className="clearfix w-80 d-md-none pb-0" />
@@ -50,10 +50,10 @@ const Footer = () => {
     </div>
 
 
-    <hr className="container" />
+    {/* <hr className="container" />
     <div className="footer-copyright text-center py-3">© 2023 Copyright :
         <a href="#!"> Team GYMLY</a>
-    </div>
+    </div> */}
 
 </footer>
     )}
