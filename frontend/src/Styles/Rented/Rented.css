@@ -1,0 +1,63 @@
+div.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 200px;
+  }
+  
+  div.gallery:hover {
+    border: 1px solid #777;
+  }
+  
+  div.gallery img {
+    width: 70%;
+    height: auto;
+  }
+  
+  div.desc {
+    padding: 30px;
+    text-align: center;
+  }
+  .row {
+    display: flex;
+  }
+  
+  .column {
+    flex: 40%;
+    padding: 7px;
+  }
+
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+ .scoll{
+  background-color: white;
+  align-items: center;
+  margin: 30px;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  width: 200px;
+border-radius: 20px;
+
+ }
+
+
+ .simg{
+  width: 400px;
+  height: 300px;
+ }
+
+ .sbtn{
+  background-color: rgb(20, 20, 20);
+  color: aliceblue;
+  padding: 11px;
+  border-radius: 10px;
+ }
+
+ .sbtn:hover {
+    background-color: #ccc;
+    color: black;
+ }

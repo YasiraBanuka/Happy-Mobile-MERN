@@ -29,7 +29,7 @@ const Header = () => {
               <Nav.Link href="#features">PRODUCTS</Nav.Link>
               <Nav.Link href="#pricing">RENT ITEMS</Nav.Link>
               <Nav.Link href="#pricing">SERVICES</Nav.Link>
-              <Nav.Link href="#pricing">RENT ITEMS</Nav.Link>
+              <Nav.Link href="#pricing">ORDERS</Nav.Link>
             </Nav>
             <Form className="d-flex">
               <Button variant="outline-primary" id="Button">Sign in</Button>
